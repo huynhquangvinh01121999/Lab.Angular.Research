@@ -25,3 +25,7 @@
     background-color: #04AA6D;
     color: white;
 }
+
+.drag-over {
+    border: 2px dashed #ccc;
+}

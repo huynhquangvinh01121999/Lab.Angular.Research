@@ -1,27 +1,30 @@
-<div>
-  <!-- <input type="file" (change)="readExcel($event)" value="Upload file"
-    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" /> -->
+<div (dragover)="dragover($event)" (dragleave)="dragleave($event)" (drop)="drop($event)"
+  style="background-color: rgb(240, 243, 243); height: 100vh;" [ngClass]="classDragOver ? 'drag-over' : ''">
+  <div>
+    <!-- <input type="file" (change)="readExcel($event)" value="Upload file"
+      accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" /> -->
 
-  <input type="file" (change)="fnXuLy($event)" value="Upload file"
-    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
-</div>
-<div>
-  <table id="data">
-    <tr>
-      <th>Tên</th>
-      <th>Giới tính</th>
-      <th>Số điện thoại</th>
-      <th>Nơi sinh</th>
-      <th>Nghề nghiệp</th>
-    </tr>
-    <tr *ngFor="let data of dataImport">
-      <td>{{data.ten}}</td>
-      <td>{{data.gioiTinh}}</td>
-      <td>{{data.sdt}}</td>
-      <td>{{data.noiSinh}}</td>
-      <td>{{data.ngheNghiep}}</td>
-    </tr>
-  </table>
+    <input type="file" (change)="fnXuLy($event)" value="Upload file"
+      accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+  </div>
+  <div>
+    <table id="data">
+      <tr>
+        <th>Tên</th>
+        <th>Giới tính</th>
+        <th>Số điện thoại</th>
+        <th>Nơi sinh</th>
+        <th>Nghề nghiệp</th>
+      </tr>
+      <tr *ngFor="let data of dataImport">
+        <td>{{data.ten}}</td>
+        <td>{{data.gioiTinh}}</td>
+        <td>{{data.sdt}}</td>
+        <td>{{data.noiSinh}}</td>
+        <td>{{data.ngheNghiep}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

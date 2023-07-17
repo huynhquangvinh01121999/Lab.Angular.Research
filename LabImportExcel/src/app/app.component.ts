@@ -8,6 +8,9 @@ import * as Excel from "exceljs";
 })
 export class AppComponent {
   title = 'LabImportExcel';
+  regex = /([a-zA-Z0-9\s_\\.\-\(\):])+(.xlsx|.xls|.xlsm|.xlt)$/i;
+
+  classDragOver: boolean = false;
   dataImport: any = []
 
   constructor() { }
@@ -56,7 +59,7 @@ export class AppComponent {
   */
   // ========================================================================================================
   // ========================================================================================================
-  
+
   // hàm xử lý đọc file excel
   async readExcel(event) {
     var arrayItem = [];
@@ -70,6 +73,8 @@ export class AppComponent {
 
     // Convert file sang dạng array buffer
     const arrayBuffer = await new Response(target.files[0]).arrayBuffer();
+    console.log(arrayBuffer);
+
 
     // Load file
     await workbook.xlsx.load(arrayBuffer);
@@ -83,7 +88,7 @@ export class AppComponent {
         arrayItem.push(row.values); // push data vào array return
       });
     } else {
-      alert("File không có dữ liệu");
+      alert("Không có dữ liệu");
     }
 
     return arrayItem;
@@ -100,5 +105,71 @@ export class AppComponent {
         ngheNghiep: row['5'],
       })
     })
+  }
+
+  // ========================================================================================================
+  // ========================================================================================================
+
+  // drag & drop handle
+  // sự kiện kéo file vào vùng đc kéo thả
+  dragover(evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
+    this.classDragOver = true;
+  }
+
+  // sự kiện kéo file ra khỏi vùng đc kéo thả
+  dragleave(evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
+    this.classDragOver = false;
+  }
+
+  // sự kiện thả file vào vùng đc kéo thả
+  drop(evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
+
+    this.dataImport = [];
+    this.classDragOver = false;
+
+    const files = evt.dataTransfer.files;
+    if (this.regex.test(files[0].name)) {
+      if (files.length > 0) {
+        const file = files[0];
+        const reader = new FileReader();
+
+        reader.onload = async (event) => {
+          const arrayBuffer: any = event.target.result;
+          const workbook = new Excel.Workbook()
+          await workbook.xlsx.load(arrayBuffer);
+
+          const sheet = workbook.getWorksheet(1);
+
+          if (sheet.rowCount > 0) {
+            sheet.eachRow(row => {
+              this.dataImport.push({
+                ten: row.values['1'],
+                gioiTinh: row.values['2'],
+                sdt: row.values['3'],
+                noiSinh: row.values['4'],
+                ngheNghiep: row.values['5'],
+              })
+            });
+          } else {
+            alert("Không có dữ liệu");
+          }
+        };
+
+        reader.onerror = (event) => {
+          console.error("Đã xảy ra lỗi khi đọc file: ", event.target.error);
+        };
+
+        // Bắt đầu đọc nội dung của file
+        reader.readAsArrayBuffer(file);
+      }
+    } else {
+      alert("File không đúng định dạng");
+    }
   }
 }
