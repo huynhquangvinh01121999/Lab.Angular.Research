@@ -1,0 +1,27 @@
+<div>
+  <!-- <input type="file" (change)="readExcel($event)" value="Upload file"
+    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" /> -->
+
+  <input type="file" (change)="fnXuLy($event)" value="Upload file"
+    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+</div>
+<div>
+  <table id="data">
+    <tr>
+      <th>Tên</th>
+      <th>Giới tính</th>
+      <th>Số điện thoại</th>
+      <th>Nơi sinh</th>
+      <th>Nghề nghiệp</th>
+    </tr>
+    <tr *ngFor="let data of dataImport">
+      <td>{{data.ten}}</td>
+      <td>{{data.gioiTinh}}</td>
+      <td>{{data.sdt}}</td>
+      <td>{{data.noiSinh}}</td>
+      <td>{{data.ngheNghiep}}</td>
+    </tr>
+  </table>
+</div>
+
+<router-outlet></router-outlet>
