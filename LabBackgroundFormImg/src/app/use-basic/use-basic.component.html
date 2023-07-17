@@ -1,0 +1,65 @@
+<div style="width:800px; margin:0 auto;">
+    <div id="node" style="background-image: url('../../assets/mau-giay-de-nghi-thanh-toan-theo-thong-tu-107-1.jpg'); 
+            width:800px; 
+            height:585px; 
+            border:1px solid black">
+
+        <!-- Field 1 -->
+        <p style="position: inherit;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px; 
+            font-weight: 700;
+            height: 13px;
+            margin-top: 215px; 
+            margin-left: 350px;">
+            {{hoTen}}
+        </p>
+
+        <!-- Field 2 -->
+        <p style="position: inherit;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px; 
+            height: 8px;
+            margin-left: 240px;">
+            {{diaChi}}
+        </p>
+
+        <!-- Field 3 -->
+        <p style="position: inherit;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            width: 650px;
+            word-wrap: break-word;
+            line-height: 1.58;
+            text-indent: 175px; 
+            margin-left: 65px;">
+            {{noiDungThanhToan}}
+        </p>
+
+        <!-- Field 4 -->
+        <p style="position: inherit;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            margin-top: -14px;
+            margin-left: 130px;">
+            {{soTien}}
+        </p>
+
+        <!-- Field 5 -->
+        <p style="position: inherit;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            margin-top: -10px;
+            margin-left: 190px;">
+            {{soTienChu}}
+        </p>
+    </div>
+    <button (click)="downloadImage()" style="padding:10px; color:rgb(28, 167, 28); cursor: pointer;margin-top: 5px;">
+        Download
+    </button>
+
+    <button (click)="downloadImageBasic()"
+        style="padding:10px; color:rgb(28, 167, 28); cursor: pointer;margin-top: 5px;">
+        Download Basic
+    </button>
+</div>

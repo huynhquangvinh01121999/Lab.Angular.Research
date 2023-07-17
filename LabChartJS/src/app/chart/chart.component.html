@@ -1,0 +1,16 @@
+<div style="margin-bottom:10px">
+    <input type="number" id="year" [(ngModel)]="year" placeholder="year"
+        style="padding:10px;border-radius: 5px; outline: none; border:0.5px solid silver" />
+
+    <button (click)="addNewColumn()"
+        style="margin-left:5px;padding:10px;border-radius: 5px; outline: none; border:0.5px solid rgb(26, 25, 25); background-color: rgb(45, 45, 235);width:100px; color:white; cursor: pointer;">
+        Add column
+    </button>
+    <button (click)="removeLastColumn()"
+        style="margin-left:5px;padding:10px;border-radius: 5px; outline: none; border:0.5px solid rgb(26, 25, 25); background-color: rgb(219, 8, 89);width:80px; color:white; cursor: pointer;">
+        Remove
+    </button>
+</div>
+<div class="chart-container" style="display: block; height: 500px;">
+    <canvas id="barLineChart">{{ barLineChart}}</canvas>
+</div>

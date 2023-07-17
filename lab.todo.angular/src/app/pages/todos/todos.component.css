@@ -1,0 +1,10 @@
+.selected {
+    font-weight: 700;
+}
+
+.todoItems {
+    width: 300px;
+    display: inline-block;
+    margin-top: 30px;
+    margin-right: 10px;
+}

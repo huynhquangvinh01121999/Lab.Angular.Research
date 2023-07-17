@@ -1,0 +1,6 @@
+<li class="todoItems" *ngFor="let todo of todos">
+    <nz-card style="width:300px;" nzTitle="{{todo.content}}">
+        <p>{{"todos.id" | translate}}: {{todo.id}}</p>
+        <p>{{"todos.createAt" | translate}}: {{todo.createAt}}</p>
+    </nz-card>
+</li>

@@ -1,0 +1,17 @@
+<div style="padding:20px">
+    <div style="width:600px; display:inline-block;float:left">
+        <label>Name: </label>
+        <input type=" text" [(ngModel)]="_name" style="padding:8px; display: block;margin-bottom: 10px;width:60%" />
+        <label>Address: </label>
+        <input type="text" [(ngModel)]="_address" style="padding:8px; display: block;margin-bottom: 10px;width:60%" />
+        <label>Contents: </label>
+        <textarea type="text" [(ngModel)]="_contents"
+            style="padding:8px; display: block;margin-bottom: 10px;width:60%"></textarea>
+
+        <button (click)="addValueIntoCanvas()" style="padding:10px; color:rgb(28, 167, 28)">Add</button>
+    </div>
+    <div style="width:600px; display:inline-block;">
+        <canvas id="myCanvas"></canvas>
+        <button (click)="downloadCanvas()" style="padding:10px; color:rgb(28, 167, 28)">Download</button>
+    </div>
+</div>

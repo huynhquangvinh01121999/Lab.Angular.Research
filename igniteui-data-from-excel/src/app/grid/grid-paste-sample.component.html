@@ -1,0 +1,7 @@
+<igx-grid [batchEditing]="true" #grid1 [data]="data" [width]="'100%'" [height]="'450px'" [autoGenerate]="false"
+    paste-handler (dataProcessed)="dataPasted($event)" [primaryKey]="'ID'">
+    <igx-column [field]="'Name'"></igx-column>
+    <igx-column [field]="'Title'"></igx-column>
+    <igx-column [field]="'Phone'"></igx-column>
+    <igx-column [field]="'Country'"></igx-column>
+</igx-grid>

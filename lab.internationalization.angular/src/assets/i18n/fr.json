@@ -1,0 +1,17 @@
+{
+    "sidebar": {
+        "dashboard": "Tableau de bord",
+        "welcome": "Salut",
+        "todoList": "Liste de travail",
+        "orthers": "Les autres",
+        "form": "Formulaire",
+        "basicForm": "Forme basique"
+    },
+    "todos": {
+        "id": "Identifiant",
+        "content": "Contenu",
+        "createAt": "Créer à",
+        "editContent": "Modifier le contenu",
+        "quickView": "Aperçu rapide"
+    }
+}

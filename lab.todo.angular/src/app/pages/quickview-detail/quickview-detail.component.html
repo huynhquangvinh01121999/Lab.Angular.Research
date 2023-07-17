@@ -1,0 +1,9 @@
+<div class="todoDetail" *ngIf="todo">
+    <h3>View detail:</h3>
+    <div>
+        <p>Id: {{todo.id}}</p>
+        <p>Content: {{todo.content}}</p>
+        <p>User created: {{todo.userCreated | uppercase}}</p>
+        <p>Create at: {{todo.createAt}}</p>
+    </div>
+</div>

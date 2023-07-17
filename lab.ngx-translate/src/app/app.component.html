@@ -1,0 +1,116 @@
+<style>
+  .select {
+    padding: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+</style>
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>{{'title' | translate}}</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="{{'dashboard' | translate}}" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome">{{'welcome' | translate}}</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>{{'monitor' | translate}}</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>{{'workplace' | translate}}</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="{{'form' | translate}}" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a>{{'bsform' | translate}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+
+        <h3>{{'currentLang' | translate}} : {{selectedTeam}}</h3>
+
+        <div *ngIf="selectedTeam == 'vi'; then thenBlock else elseBlock"></div>
+        <div>
+          <ng-template #thenBlock>{{'currentTime' | translate}} : {{currentDate | date:'dd-MM-yyyy'}}</ng-template>
+          <ng-template #elseBlock>{{'currentTime' | translate}} : {{currentDate | date:'yyyy-MM-dd'}}</ng-template>
+        </div>
+
+        <select class="select" #selected (change)="onSelected(selected.value)" [ngModel]="selectedTeam">
+          <option value="vi" [defaultSelected]="true">{{'vi' | translate}}</option>
+          <option value="jp">{{'jp' | translate}}</option>
+        </select>
+
+        <select class="select" #selected2 (change)="onSelected2(selected2.value)" [ngModel]="selectedTeam">
+          <option *ngFor="let value of languages" [value]="value">
+            {{value | translate}}
+          </option>
+        </select>
+
+        <h3>{{'checkios.tonggiocong' | translate}} : 50.8</h3>
+        <h3>{{'checkios.tongngaycong' | translate}} : 7.5</h3>
+        <h3>{{'checkios.phucaps.ttpc' | translate}}</h3>
+        <h3>{{'checkios.dieuchinhts.ttdcts' | translate}}</h3>
+        <h3>{{'checkios.lamthemgio.ngaydk' | translate}} : {{currentDate | date:'yyyy-MM-dd'}}</h3>
+        <h3>{{'checkios.phucaps.canhbaocheat' | translate}}</h3>
+        <!-- <h3>{{'tongngaycong' | translate:{'name':'Mr.Vinh'} }}</h3> -->
+        <!-- <span nz-tooltip nzTooltipTitle="{{'xetduyet.dongy' | translate}}">
+          {{'xetduyet.lamthemgio.xdc1' | translate}}
+        </span> -->
+        <span nz-tooltip nzTooltipTitle="{{'name' | translate:{'name': name} }}">
+          {{'name' | translate:{'name': name} }}
+        </span>
+
+        <nz-table #basicTable>
+          <thead>
+            <tr>
+              <th>{{'checkios.ngaylamviec' | translate}}</th>
+              <th>{{'checkios.maychamcong' | translate}}</th>
+              <th>{{'checkios.dieuchinhts' | translate}}</th>
+              <th>{{'checkios.ditre' | translate}}/{{'checkios.vesom' | translate}}</th>
+              <th>{{'checkios.lamthemgio' | translate}}</th>
+              <th>{{'checkios.phucap' | translate}}</th>
+              <th>{{'checkios.np' | translate}}</th>
+              <th>{{'checkios.vbn' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{currentDate | date:'yyyy-MM-dd'}}</td>
+              <td>08:00 - 17:00</td>
+              <td><a (click)="toastNotification()">{{'checkios.dieuchinh' | translate}}</a></td>
+              <td></td>
+              <td><a>{{'checkios.dk' | translate}}</a></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </nz-table>
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

@@ -1,0 +1,11 @@
+GENERATE DOCX, PPTX, XLSX FROM TEMPLATES
+Thư viện: docxtemplater
+- Npm: https://www.npmjs.com/package/docxtemplater
+- Source code: https://github.com/open-xml-templating/docxtemplater
+- Demo: https://www.docxtemplater.com/demo
+- StackBlitz: https://stackblitz.com/edit/angular-docxtemplater-example?file=src%2Fapp%2Fproduct-list%2Fproduct-list.component.ts
+
+Thư viện: easy-template-x
+- Npm: https://www.npmjs.com/package/easy-template-x
+- Source code: https://github.com/alonrbar/easy-template-x
+- Demo: https://codesandbox.io/s/easy-template-x-demo-x4ppu?fontsize=14&module=%2Findex.ts

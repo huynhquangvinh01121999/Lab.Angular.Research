@@ -1,0 +1,39 @@
+1/ Cài đặt thư viện chart.js 2.9.4:
+npm i chart.js@2.9.4
+npm i --save-dev @types/chart.js
+
+2/ Import thư viện chart.js:
+import { Chart } from 'chart.js';
+
+3/ Tạo chart:
+- File html:
+<div class="chart-container">
+    <canvas id="chart">{{ chart }}</canvas>
+</div>
+
+- File component.ts:
+public chart: any;
+ngOnInit(): void {
+    this.createChart();
+}
+
+createChart = new Chart('chart', {
+    type: '<chart name type>',
+    data: data,
+    options: options
+});
+
+Tài liệu tham khảo bổ sung:
+https://github.com/emn178/chartjs-plugin-labels
+https://www.freecodecamp.org/news/how-to-make-bar-and-line-charts-using-chartjs-in-angular/
+https://github.com/jtblin/angular-chart.js
+https://jtblin.github.io/angular-chart.js/
+http://www.studyzone4u.com/post-details/how-to-show-data-values-on-top-of-each-bar-in-chartjs
+
+http://jsfiddle.net/uh9vw0ao/
+https://chartjs-plugin-datalabels.netlify.app/samples/charts/doughnut.html
+https://github.com/chartjs/chartjs-plugin-datalabels
+
+https://docs.telerik.com/kendo-ui/api/javascript/dataviz/ui/chart/configuration/legend.margin
+http://www.java2s.com/example/javascript/chart.js/chartjs-increase-spacing-between-legend-and-chart.html
+https://codepen.io/jordanwillis/pen/ZeOYdL

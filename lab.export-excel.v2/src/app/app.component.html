@@ -1,0 +1,165 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <!-- <a routerLink="" target="_blank"> -->
+      <a routerLink="">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Ant Design Of Angular</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/danhSachThuPhi">Danh sách thu phí</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/orther">Chức năng khác</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a>Basic Form</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <!-- start -->
+        <!-- Export Tong Hop Ngay Cong -->
+        <!-- <button nz-button nzType="primary" nzDanger (click)="fetchData()"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Fetch Data</button>
+        <button nz-button nzType="primary" nzDanger (click)="exportExcel_v3('Huỳnh Quang Vinh','A013','2023-02','HuynhQuangVinh_202302')"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Exp v3</button>
+        <button nz-button nzType="primary" (click)="exportExcel_v2('templateTongHopNgayCong.xlsx','Sheet1')"
+          style="float: right; margin-bottom: 10px;">Export
+          to
+          excel</button> -->
+        <!-- end -->
+
+        <!-- start -->
+        <!-- Export Quan Ly Ngay Cong -->
+        <!-- <button nz-button nzType="dashed" nzDanger (click)="expEx_QuanLyNgayCong(null,'2023-01')"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Export QLNC
+        </button> -->
+
+        <!-- start -->
+        <!-- Export Thong ke nghi phep -->
+        <!-- <button nz-button nzType="dashed" nzDanger (click)="thongKeNghiPhep()"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Export Nghỉ phép
+        </button> -->
+
+        <!-- start -->
+        <!-- Export Thong ke phụ cấp -->
+        <!-- <button nz-button nzType="dashed" nzDanger (click)="thongKePhuCap()"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Export Phụ cấp
+        </button> -->
+
+        <!-- start -->
+        <!-- Export Thong ke làm thêm giờ -->
+        <!-- <button nz-button nzType="dashed" nzDanger (click)="thongKeLamThemGio()"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Export Làm thêm giờ
+        </button> -->
+
+        <!-- start -->
+        <!-- Export Thong ke ngày công -->
+        <!-- <button nz-button nzType="dashed" nzDanger (click)="thongKeNgayCong()"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Export Thống kê NC
+        </button> -->
+
+        <!-- start -->
+        <!-- Export Thong ke ỨNG VIÊN-->
+        <!-- <button nz-button nzType="dashed" nzDanger (click)="thongKeUngVien()"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Export Thống kê UV
+        </button> -->
+
+        <!-- start -->
+        <!-- Export CP Ứng viên-->
+        <!-- <button nz-button nzType="dashed" nzDanger (click)="expChiPhiUngVien()"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Export CPhi UV
+        </button> -->
+
+        <!-- start -->
+        <!-- Export CP Ứng viên_Giai đoạn-->
+        <!-- <button nz-button nzType="dashed" nzDanger (click)="expThuPhiUngVien_GiaiDoan()"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Export CPhi UV_GĐ
+        </button> -->
+
+        <!-- start -->
+        <!-- Export Ds nguồn ứng viên-->
+        <!-- <button nz-button nzType="dashed" nzDanger (click)="exportDsNguonUngVien()"
+          style="float: right; margin-bottom: 10px; margin-left:5px">Export Ds Nguon Uv
+        </button> -->
+
+        <!-- <div class="form-group">
+
+          <label for="upload-photo"
+            style="float: right; margin-bottom: 10px; margin-left:5px; padding:10px; border:1px solid silver;">Đọc file
+
+            <input type="file" id="upload-photo" (change)="uploadExcel2($event)"
+              accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+          </label>
+        </div> -->
+
+
+        <!-- <nz-table #basicTable>
+          <thead>
+            <tr>
+              <th rowSpan="2">STT</th>
+              <th rowSpan="2">Mã nhân viên</th>
+              <th colSpan="2">Thông tin nghỉ phép</th>
+              <th rowSpan="2">Tổng nghỉ</th>
+            </tr>
+            <tr>
+              <th>GioVao</th>
+              <th>GioRa</th>
+            </tr>
+          </thead>
+        </nz-table> -->
+
+        <!-- <nz-table #basicTable>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Title</th>
+              <th>Phone</th>
+              <th>Country</th>
+              <th colSpan="2">Work</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of excelData">
+              <td>{{item.Name}}</td>
+              <td>{{item.Title}}</td>
+              <td>{{item.Phone}}</td>
+              <td>{{item.Country}}</td>
+              <td>{{item.Work}}</td>
+              <td>{{item.__EMPTY}}</td>
+
+              <td>{{item['0']}}</td>
+              <td>{{item['1']}}</td>
+              <td>{{item['2']}}</td>
+              <td>{{item['3']}}</td>
+              <td>{{item['4']}}</td>
+              <td>{{item['5']}}</td>
+            </tr>
+          </tbody>
+        </nz-table> -->
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

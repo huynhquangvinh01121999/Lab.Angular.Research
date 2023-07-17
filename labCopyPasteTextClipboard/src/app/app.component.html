@@ -1,0 +1,21 @@
+<!-- <div (paste)="onListenPasted($event)"> -->
+<!-- <div (paste)="getClipboardContents()"> -->
+<div (paste)="handlePasteEvent($event)">
+
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">NAME</div>
+      <div class="col col-2">TITLE</div>
+      <div class="col col-3">PHONE</div>
+      <div class="col col-4">COUNTRY</div>
+      <div class="col col-4">WORK</div>
+    </li>
+    <li class="table-row" *ngFor="let item of dataSource">
+      <input class="col col-1" value="{{item.name}}" />
+      <textarea class="col col-2" rows="3">{{item.title}}</textarea>
+      <input class="col col-3" value="{{item.phone}}" />
+      <input class="col col-4" value="{{item.country}}" />
+      <input class="col col-4" style="text-align: center;" value="{{item.work}}" />
+    </li>
+  </ul>
+</div>

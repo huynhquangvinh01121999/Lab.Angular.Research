@@ -1,0 +1,10 @@
+{
+    "/posts": {
+        "target": "https://esuhai.vn/api",
+        "secure": true,
+        "pathRewrite": {
+            "^/posts": ""
+        },
+        "changeOrigin": true
+    }
+}

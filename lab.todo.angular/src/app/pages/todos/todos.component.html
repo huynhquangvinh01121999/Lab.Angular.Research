@@ -1,0 +1,18 @@
+<li class="todoItems" *ngFor="let todo of todos">
+    <nz-card nzTitle="{{todo.content}}" [class.selected]="todo === selectedTodo">
+        <p>{{"todos.id" | translate}}: {{todo.id}}</p>
+        <p>{{"todos.createAt" | translate}}: {{todo.createAt}}</p>
+
+        <button nz-button nzType="primary" (click)="onSelectedTodo(todo)">{{"todos.quickView" | translate}}</button>
+        <a routerLink="/todos/{{todo.id}}">
+            <nz-alert nzType="warning" nzMessage="Detail" nzShowIcon></nz-alert>
+        </a>
+
+        <div>
+            <label for="content">{{"todos.editContent" | translate}}: </label>
+            <input id="content" placeholder="content" [(ngModel)]="todo.content">
+        </div>
+    </nz-card>
+</li>
+
+<app-quickview-detail [todo]="selectedTodo"></app-quickview-detail>

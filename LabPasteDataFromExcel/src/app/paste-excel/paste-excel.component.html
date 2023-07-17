@@ -1,0 +1,20 @@
+<div (paste)="onListenPasted($event)">
+
+    <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col col-1">NAME</div>
+            <div class="col col-2">TITLE</div>
+            <div class="col col-3">PHONE</div>
+            <div class="col col-4">COUNTRY</div>
+            <div class="col col-4">WORK</div>
+        </li>
+        <li class="table-row" *ngFor="let item of dataSource">
+            <input class="col col-1" value="{{item['1']}}" />
+            <textarea class="col col-2" rows="3">{{item['2']}}</textarea>
+            <input class="col col-3" value="{{item['3']}}" />
+            <input class="col col-4" value="{{item['4']}}" />
+            <input class="col col-4" style="text-align: center;" value="{{item['5']}}" />
+            <input class="col col-4" style="text-align: center;" value="{{item['6']}}" />
+        </li>
+    </ul>
+</div>

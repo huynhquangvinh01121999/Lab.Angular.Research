@@ -1,0 +1,11 @@
+Using Angular:
+https://stackblitz.com/edit/angular-copy-paste-table-from-excel-dqtxfp?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html,src%2Fapp%2Fapp.module.ts
+https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/paste-excel
+https://github.com/valor-software/ng2-handsontable
+
+Using ReactJS:
+https://www.telerik.com/kendo-react-ui/components/knowledge-base/grid-paste-from-excel/
+https://www.npmjs.com/package/paste-from-excel
+
+Basic (Html, js):
+https://codepen.io/binilbpx/pen/RwaYoQQ?editors=0010

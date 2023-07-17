@@ -1,0 +1,62 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Angular 14 Basic</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="{{'sidebar.dashboard'| translate}}" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/dashboard">{{'sidebar.welcome'| translate}}</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/todos">{{'sidebar.todoList'| translate}}</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>{{'sidebar.orthers'|translate}}</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="{{'sidebar.form'| translate}}" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a>{{'sidebar.basicForm'| translate}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+        </span>
+        <span style="float: right; margin-right:50px;">
+          <nz-select [(ngModel)]="selectedItem" (ngModelChange)="switchLang(selectedItem)"
+            nzPlaceHolder="Select the language">
+            <nz-option *ngFor="let language of translate.getLangs()" [nzValue]="language" [nzLabel]="language">
+            </nz-option>
+          </nz-select>
+          <!-- <select #selectedLang (change)="switchLang(selectedLang.value)">
+            <option *ngFor="let language of translate.getLangs()" [value]="language"
+              [selected]="language === translate.currentLang">
+              {{ language }}
+            </option>
+          </select> -->
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <span class="form-inline">
+          <router-outlet></router-outlet>
+        </span>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
